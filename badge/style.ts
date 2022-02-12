@@ -35,7 +35,7 @@ export function mapStyle(style: BadgeStyle): StyleDefinition {
         letterSpacing: 1,
         textTransform: (s) => s.toUpperCase(),
         height: 36,
-        scale: 1.8
+        scale: 1.9
       };
   }
 }

@@ -21,7 +21,7 @@ export function generateField(o: FieldOptions): string {
   return `
   <rect x="${o.offset}" width="${o.width}" height="${o.height}" fill="${o.color}"/>
   <g fill="#fff" text-anchor="middle" font-family="DejaVu Sans,Verdana,Geneva,sans-serif"
-      font-size="${o.fontSize}" letter-spacing="${o.letterSpacing ?? 0}px">
+      font-size="${o.fontSize}" font-weight="${o.fontWeight}" letter-spacing="${o.letterSpacing ?? 0}px">
     <text x="${tx}" y="${ty+1}" fill="#010101" fill-opacity=".3">${o.content}</text>
     <text x="${tx}" y="${ty}">${o.content}</text>
   </g>`;
