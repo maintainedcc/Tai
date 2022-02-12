@@ -68,9 +68,10 @@ async function generatePartial(field: BadgeField, style: BadgeStyle, offset = 0)
 		width: width
 	};
 
+	const fieldResult = generateField(opts);
 	return {
-		content: generateField(opts),
+		content: fieldResult.content,
 		title: field.content,
-		width: width + (field.iconURI ? 10 : 0)
+		width: fieldResult.width
 	};
 }
