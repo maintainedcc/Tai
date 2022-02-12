@@ -6,15 +6,24 @@ const app = new Application();
 const router = new Router();
 
 router
-  .get("/test", async ctx => {
-    const badge = await fetch("http://localhost:8002/SDBagel/Analytics/1/json")
-      .then(res => res.json());
+	.get("/:userId/:project/:badgeId", async ctx => {
+		const { userId, project, badgeId } = ctx.params;
+		const apiBase = Deno.env.get("API_BASE") || "http://localhost:8002";
+		const data = await fetch(`${apiBase}/${userId}/${project}/${badgeId}/json`)
+			.then(res => res.json());
 
-    ctx.response.body = await generate(badge);
-    ctx.response.type = "image/svg+xml";
-  });
+		if (data) {
+			const badge = await generate(data);
+			ctx.response.body = badge;
+			ctx.response.headers.set("Access-Control-Allow-Origin", "*");
+			ctx.response.headers.set("Cache-Control", "no-store");
+			ctx.response.type = "image/svg+xml";
+		}
+		else ctx.throw(404);
+	});
 
 app.use(router.routes());
+app.use(router.allowedMethods());
 
 const port = Deno.env.get("PORT") || "9000";
 console.log(`http://localhost:${port}`);
