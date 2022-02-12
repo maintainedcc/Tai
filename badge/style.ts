@@ -31,11 +31,10 @@ export function mapStyle(style: BadgeStyle): StyleDefinition {
       return {
         borderRadius: 0,
         fontSize: 13,
-        fontWeight: "bold",
         letterSpacing: 1,
         textTransform: (s) => s.toUpperCase(),
         height: 36,
-        scale: 1.9
+        scale: 1.8
       };
   }
 }

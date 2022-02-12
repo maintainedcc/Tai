@@ -72,6 +72,7 @@ export class BadgeService {
 			...mappedStyle,
 			color: colorString,
 			content: field.content,
+			iconURI: field.iconURI,
 			offset: offset,
 			width: width
 		};
@@ -79,7 +80,7 @@ export class BadgeService {
 		return {
 			content: generateField(opts),
 			title: field.content,
-			width: width
+			width: width + (field.iconURI ? 10 : 0)
 		};
 	}
 }
