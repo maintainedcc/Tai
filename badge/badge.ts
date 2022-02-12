@@ -1,12 +1,8 @@
 
 import { mapColor } from "./color.ts";
+import { generateField } from "./field.ts";
+import { generateWrapper } from "./wrapper.ts";
 import { IconService } from "../icon/icon.ts";
-import { 
-	Flat,
-	FTB,
-	Plastic,
-	Template
-} from './style/mod.ts';
 import { 
 	Badge, 
 	BadgeStyle,
@@ -40,7 +36,12 @@ export class BadgeService {
 			}
 
 		const aTitle = accessibleTitle.join(" ");
-		return this.generateWrapper(badge.style, innerContent, aTitle, totalWidth);
+		return generateWrapper({
+			content: innerContent,
+			title: aTitle,
+			height: 20,
+			width: totalWidth
+		});
 	}
 
 	private async generatePartial(field: BadgeField, style: BadgeStyle, offset = 0): Promise<BadgePartial> {
@@ -65,24 +66,22 @@ export class BadgeService {
 		// Hex color string of partial
 		const colorString = mapColor(field.color);
 
-		let generator = this.getGenerator(style);
-		return {
-			content: generator.field(field, colorString, offset, field.source ? true:false),
-			title: field.content,
+		const opts = {
+			borderRadius: 5,
+			color: colorString,
+			content: field.content,
+			fontSize: 11,
+			fontWeight: "normal",
+			letterSpacing: 0,
+
+			offset: offset,
+			height: 20,
 			width: field.width
 		}
-	}
-
-	private generateWrapper(style: BadgeStyle, innerContent: string, title: string, totalWidth: number): string {
-		return this.getGenerator(style).wrapper(innerContent, title, totalWidth);
-	}
-
-	private getGenerator(style: BadgeStyle): Template {
-		switch (style) {
-			case BadgeStyle.Plastic: return new Plastic();
-			case BadgeStyle.Flat: return new Flat();
-			case BadgeStyle.ForTheBadge: return new FTB();
-			default: throw EvalError(`Invalid badge style: ${style}`);
+		return {
+			content: generateField(opts),
+			title: field.content,
+			width: field.width
 		}
 	}
 }
