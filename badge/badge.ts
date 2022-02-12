@@ -1,13 +1,10 @@
 
 import { mapColor } from "./color.ts";
 import { generateField } from "./field.ts";
+import { mapStyle } from "./style.ts";
 import { generateWrapper } from "./wrapper.ts";
 import { IconService } from "../icon/icon.ts";
-import { 
-	Badge, 
-	BadgeStyle,
-	BadgeField
-} from "../schema/mod.ts";
+import { Badge, BadgeStyle, BadgeField } from "../schema/mod.ts";
 
 interface BadgePartial {
 	content: string // SVG or HTML string
@@ -36,11 +33,12 @@ export class BadgeService {
 			}
 
 		const aTitle = accessibleTitle.join(" ");
+		const mappedStyle = mapStyle(badge.style);
 		return generateWrapper({
 			content: innerContent,
 			title: aTitle,
-			height: 20,
-			width: totalWidth
+			height: mappedStyle.height,
+			width: totalWidth,
 		});
 	}
 
@@ -66,22 +64,19 @@ export class BadgeService {
 		// Hex color string of partial
 		const colorString = mapColor(field.color);
 
-		const opts = {
-			borderRadius: 5,
+		const mappedStyle = mapStyle(style);
+		const opts: any = {
+			...mappedStyle,
 			color: colorString,
 			content: field.content,
-			fontSize: 11,
-			fontWeight: "normal",
-			letterSpacing: 0,
-
 			offset: offset,
-			height: 20,
-			width: field.width
-		}
+			width: field.width * (mappedStyle.scale ?? 1) + 20
+		};
+
 		return {
 			content: generateField(opts),
 			title: field.content,
-			width: field.width
-		}
+			width: field.width * (mappedStyle.scale ?? 1) + 20
+		};
 	}
 }
