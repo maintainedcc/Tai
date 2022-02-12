@@ -6,9 +6,10 @@ interface StyleDefinition {
   fontSize: number
   fontWeight?: string
   letterSpacing?: number
-  height: number
+  textTransform?: (s: string) => string
 
   padding?: number
+  height: number
   scale?: number
 }
 
@@ -32,6 +33,7 @@ export function mapStyle(style: BadgeStyle): StyleDefinition {
         fontSize: 13,
         fontWeight: "bold",
         letterSpacing: 1,
+        textTransform: (s) => s.toUpperCase(),
         height: 36,
         scale: 1.8
       };

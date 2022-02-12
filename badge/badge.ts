@@ -65,18 +65,21 @@ export class BadgeService {
 		const colorString = mapColor(field.color);
 
 		const mappedStyle = mapStyle(style);
+		if (mappedStyle.textTransform)
+			field.content = mappedStyle.textTransform(field.content);
+		const width = Math.max(field.width * (mappedStyle.scale ?? 1) + 20, mappedStyle.height);
 		const opts: any = {
 			...mappedStyle,
 			color: colorString,
 			content: field.content,
 			offset: offset,
-			width: field.width * (mappedStyle.scale ?? 1) + 20
+			width: width
 		};
 
 		return {
 			content: generateField(opts),
 			title: field.content,
-			width: field.width * (mappedStyle.scale ?? 1) + 20
+			width: width
 		};
 	}
 }
