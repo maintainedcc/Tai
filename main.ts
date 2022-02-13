@@ -25,6 +25,6 @@ router
 app.use(router.routes());
 app.use(router.allowedMethods());
 
-const port = Deno.env.get("PORT") || "9000";
+const port = Deno.env.get("PORT") || "9002";
 console.log(`http://localhost:${port}`);
 app.listen({ port: parseInt(port) });
