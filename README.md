@@ -6,6 +6,10 @@
 
 Tai is a Deno badging module. It is written with Maintained's badging system in mind.
 
+### Permissions
+
+You may need to run scripts that use Tai with the `allow-read` permission, if you use icons in your badges. Tai reads downloaded icons from the filesystem.
+
 ### Usage
 
 ```ts
