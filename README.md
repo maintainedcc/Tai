@@ -16,7 +16,7 @@ You may need to run scripts that use Tai with the `allow-read` permission, if yo
 import { generate } from "https://deno.land/x/tai/mod.ts";
 
 const badge = {
-	fields: [
+  fields: [
     {
       content: "Build Status",
       color: 0, // 0-6 or BadgeColor.Simple (etc), refer to BadgeColor enum
@@ -30,7 +30,7 @@ const badge = {
     // ...
     // Minimum one field, unlimited maximum for true mayhem
   ],
-	style: 0 // 0-2 or BadgeStyle.Plastic (etc), refer to BadgeStyle enum
+  style: 0 // 0-2 or BadgeStyle.Plastic (etc), refer to BadgeStyle enum
 }
 
 // Returns SVG string of badge
@@ -40,19 +40,19 @@ const svg = await generate(badge);
 ### BadgeStyle & BadgeColor (exported types)
 ```ts
 enum BadgeColor {
-	Simple,
-	Slate,
-	Seabed,
-	Subterranean,
-	Savannah,
-	Sahara,
-	Sunset
+  Simple,
+  Slate,
+  Seabed,
+  Subterranean,
+  Savannah,
+  Sahara,
+  Sunset
 }
 
 enum BadgeStyle {
-	Plastic,
-	Flat,
-	ForTheBadge
+  Plastic,
+  Flat,
+  ForTheBadge
 }
 ```
 
