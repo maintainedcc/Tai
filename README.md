@@ -6,9 +6,17 @@
 
 Tai is a Deno badge generation module. It is written with [Maintained](https://github.com/maintainedcc/Maintained)'s badging system in mind.
 
+### Examples
+
+The following are examples of Tai badges:
+
+![https://nightly.tai.maintained.cc/SDBagel/SDBagel/2](https://nightly.tai.maintained.cc/SDBagel/SDBagel/2)
+
+![https://nightly.tai.maintained.cc/SDBagel/SDBagel/1](https://nightly.tai.maintained.cc/SDBagel/SDBagel/1)
+
 ### Permissions
 
-You may need to run scripts that use Tai with the `allow-read` permission, if you use icons in your badges. Tai reads downloaded icons from the filesystem.
+You may need to run scripts that use Tai with the `allow-read` permission, if you use icons in your badges. Tai reads downloaded icons from the filesystem in `./icon/simple-icons/icons`, relative from the Deno execution context.
 
 ### Usage
 
