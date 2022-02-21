@@ -4,7 +4,7 @@
 
 ## Tai
 
-Tai is a Deno badging module. It is written with Maintained's badging system in mind.
+Tai is a Deno badge generation module. It is written with [Maintained](https://github.com/maintainedcc/Maintained)'s badging system in mind.
 
 ### Permissions
 
@@ -55,3 +55,7 @@ enum BadgeStyle {
 	ForTheBadge
 }
 ```
+
+### (Current) Caveats
+
+Because Tai is built with Maintained in mind first and foremost, it offloads the width calculation of badge fields to the Maintained dashboard. This makes sense to reduce development overhead because the browser can calculate the width, while an additional package would be needed in Tai. Admittedly, this is pretty annoying for using this module by itself, so it might change later. I dunno. No promises.
