@@ -2,7 +2,7 @@
 // Returns an SVG string or empty string
 // Gets icons from simpleicons
 export async function getIconDataURL(name: string, forceLight: boolean): Promise<string> {
-	const path = `icon/simpleicons/${name}.svg`;
+	const path = `icon/simple-icons/icons/${name}.svg`;
 	let svg = await Deno.readTextFile(path).catch(() => "");
 	if (!svg) return "";
 

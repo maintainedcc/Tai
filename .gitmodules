@@ -1,0 +1,4 @@
+[submodule "icon/simple-icons"]
+	path = icon/simple-icons
+	url = https://github.com/simple-icons/simple-icons.git
+	branch = master
