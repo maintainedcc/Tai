@@ -15,7 +15,7 @@ interface BadgePartial {
 export async function generate(badge: Badge): Promise<string> {
 	let totalWidth = 0;
 	let innerContent = "";
-	let accessibleTitle: string[] = [];
+	const accessibleTitle: string[] = [];
 	
 	// Compile badge partials
 	if (badge.fields)

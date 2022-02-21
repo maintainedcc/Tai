@@ -1,9 +1,12 @@
 
 export interface Badge {
-	id: number
 	fields: BadgeField[]
-	redirect?: string
 	style: BadgeStyle
+
+	// These fields are also found in the Maintained
+	// badge spec, but aren't used by Tai
+	// id: number
+	// redirect?: string
 }
 
 export interface BadgeField {

@@ -21,7 +21,7 @@ interface FieldResult {
 
 export function generateField(o: FieldOptions): FieldResult {
   // Icon size
-  let isz = o.iconURI ? o.height*2/3 : 0;
+  const isz = o.iconURI ? o.height*2/3 : 0;
 
   // Icon padding left & right
   let ipl = 0, ipr = 0;
