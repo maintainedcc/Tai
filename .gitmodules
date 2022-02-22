@@ -2,3 +2,7 @@
 	path = icon/simple-icons
 	url = https://github.com/simple-icons/simple-icons.git
 	branch = master
+[submodule "icon/twbs-icons"]
+	path = icon/twbs-icons
+	url = https://github.com/twbs/icons.git
+	branch = main
