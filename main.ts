@@ -1,5 +1,6 @@
 
 import { generate } from "./badge/badge.ts";
+import { readSVG } from "./icon/icon.ts";
 import { Application, Router } from "./deps.ts";
 
 const app = new Application();
@@ -39,6 +40,13 @@ router
 			ctx.response.type = "image/svg+xml";
 		}
 		else ctx.throw(404);
+	})
+	.get("/icon/:iconURI", async ctx => {
+		const { iconURI } = ctx.params;
+		ctx.response.body = await readSVG(iconURI);
+		ctx.response.headers.set("Access-Control-Allow-Origin", "*");
+		ctx.response.headers.set("Cache-Control", "no-store");
+		ctx.response.type = "image/svg+xml";
 	});
 
 app.use(router.routes());

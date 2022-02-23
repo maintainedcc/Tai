@@ -24,7 +24,7 @@ export async function getIconDataURL(name: string, forceLight: boolean): Promise
 }
 
 // Checks all downloaded iconsets for icon presence
-async function readSVG(name: string): Promise<string> {
+export async function readSVG(name: string): Promise<string> {
 	for (const iconSet of iconSets) {
 		const path = `icon/${iconSet}/${name}.svg`;
 		let svg = "";
