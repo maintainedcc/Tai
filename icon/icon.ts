@@ -14,7 +14,10 @@ export async function getIconDataURL(name: string, forceLight: boolean): Promise
 	// Get SVG and change color to be white
 	let svg = await readSVG(name);
 	if (!svg) return "";
-	if (forceLight) svg = svg.replace("<path", "<path fill='#fff'");
+	if (forceLight) {
+		svg = svg.replace("fill=\"currentColor\"", "fill=\"#fff\"");
+		svg = svg.replace("<path", "<path fill='#fff'");
+	}
 
 	// Return as data URL
 	return "data:image/svg+xml;base64," + btoa(svg);
