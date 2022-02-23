@@ -43,7 +43,14 @@ router
 	})
 	.get("/icon/:iconURI", async ctx => {
 		const { iconURI } = ctx.params;
-		ctx.response.body = await readSVG(iconURI);
+		const svg = await readSVG(iconURI);
+		if (!svg) {
+			ctx.response.status = 404;
+			ctx.response.body = "Not found";
+			console.error("[ERR] Icon not found:", iconURI);
+			return;
+		}
+		ctx.response.body = svg;
 		ctx.response.headers.set("Access-Control-Allow-Origin", "*");
 		ctx.response.headers.set("Cache-Control", "no-store");
 		ctx.response.type = "image/svg+xml";
