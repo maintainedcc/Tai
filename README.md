@@ -1,8 +1,6 @@
 <p align="center"><a href="https://maintained.cc" target="_blank" rel="noopener noreferrer"><img src=".github/readme/banner.png" width="100%" alt="Maintained"></a></p>
 
-<hr>
-
-## Tai
+# Tai
 
 Tai is a Deno badge generation module. It is written with [Maintained](https://github.com/maintainedcc/Maintained)'s badging system in mind.
 
@@ -10,9 +8,11 @@ Tai is a Deno badge generation module. It is written with [Maintained](https://g
 
 The following are examples of Tai badges:
 
-![https://nightly.tai.maintained.cc/SDBagel/SDBagel/2](https://nightly.tai.maintained.cc/SDBagel/SDBagel/2)
+![https://tai.maintained.cc/ivynya/Maintained/1](https://tai.maintained.cc/ivynya/Maintained/1)
 
-![https://nightly.tai.maintained.cc/SDBagel/SDBagel/1](https://nightly.tai.maintained.cc/SDBagel/SDBagel/1)
+![https://tai.maintained.cc/ivynya/Maintained/2](https://tai.maintained.cc/ivynya/Maintained/2)
+
+![https://tai.maintained.cc/ivynya/Maintained-Tai/1](https://tai.maintained.cc/ivynya/Maintained-Tai/1)
 
 ### Permissions
 
@@ -66,4 +66,4 @@ enum BadgeStyle {
 
 ### (Current) Caveats
 
-Because Tai is built with Maintained in mind first and foremost, it offloads the width calculation of badge fields to the Maintained dashboard. This makes sense to reduce development overhead because the browser can calculate the width, while an additional package would be needed in Tai. Admittedly, this is pretty annoying for using this module by itself, so it might change later. I dunno. No promises.
+Because Tai is built with Maintained in mind first and foremost, it offloads the width calculation of badge fields to the Maintained dashboard (or whatever project consumes it). This makes sense to reduce development overhead because browsers/web apps can calculate the width easily, while an additional package would be needed in Tai.
